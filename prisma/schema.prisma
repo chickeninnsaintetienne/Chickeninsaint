@@ -1,0 +1,88 @@
+// This is a starting point, built from reading supabase_schema.sql and the
+// migration_*.sql files by hand. Those files disagree with each other in
+// places (migration_categories.sql even drops and recreates products/categories),
+// so before you trust this: run `npx prisma db pull` against your real
+// Supabase database and diff the result against this file. Let db pull win.
+//
+// Written for Prisma ORM 7 (the current stable release). As of this file,
+// `npm install prisma @prisma/client` with no version pin installs Prisma 8,
+// which is still a release candidate with a different CLI — pin to 7
+// explicitly (see the README). Two v7 changes that show up right here:
+//  - the client generator is "prisma-client", not "prisma-client-js", and
+//    needs an `output` path (Prisma 7 no longer generates into
+//    node_modules/.prisma/client)
+//  - the connection string moves out of this file entirely, into
+//    prisma.config.ts
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Category {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String
+  name_fr       String?
+  slug          String    @unique
+  image_url     String?
+  display_order Int       @default(0)
+  created_at    DateTime  @default(now()) @db.Timestamptz(6)
+
+  products      Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  number          String    @unique
+  name            String
+  name_fr         String?
+  description     String?
+  description_fr  String?
+  ingredients     String[]
+  category_id     String?   @db.Uuid
+  category        Category? @relation(fields: [category_id], references: [id])
+  price_solo      Decimal?  @db.Decimal
+  price_menu      Decimal?  @db.Decimal
+  quantity        String?
+  display_order   Int?      @default(0)
+  image_url       String?
+  created_at      DateTime  @default(now()) @db.Timestamptz(6)
+
+  @@map("products")
+}
+
+model Offer {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title           String
+  title_fr        String?
+  description     String?
+  description_fr  String?
+  image_url       String
+  price           Decimal   @db.Decimal
+  redirect_url    String?
+  created_at      DateTime  @default(now()) @db.Timestamptz(6)
+
+  @@map("offers")
+}
+
+// Single-row settings table (id used as a real uuid, not a fixed singleton key).
+model Settings {
+  id                 String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  phone              String?
+  hours              String?
+  address            String?
+  uber_eats_url      String?
+  deliveroo_url      String?
+  social_facebook    String?
+  social_instagram   String?
+  menu_pdf_url       String?
+  created_at         DateTime @default(now()) @db.Timestamptz(6)
+
+  @@map("settings")
+}
