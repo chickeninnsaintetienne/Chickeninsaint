@@ -13,7 +13,7 @@ export interface Category {
     slug: string
     image_url?: string | null
     display_order: number
-    created_at: string
+    created_at: Date
 }
 
 export interface Product {
@@ -31,7 +31,7 @@ export interface Product {
     quantity?: string | null
     display_order?: number
     image_url: string | null
-    created_at: string
+    created_at: Date
 }
 
 export interface Database {
