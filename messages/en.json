@@ -64,7 +64,9 @@
       "quickLinks": "Quick Links",
       "contactUs": "Contact Us",
       "followUs": "Follow Us",
-      "rights": "All rights reserved."
+      "rights": "All rights reserved.",
+      "description": "Fresh, bold flavors made daily. Real ingredients, real taste, every single time.",
+      "orderNow": "Order Now"
     }
   },
   "DownloadMenu": {

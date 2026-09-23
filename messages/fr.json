@@ -64,7 +64,9 @@
       "quickLinks": "Liens Rapides",
       "contactUs": "Contactez-Nous",
       "followUs": "Suivez-Nous",
-      "rights": "Tous droits réservés."
+      "rights": "Tous droits réservés.",
+      "description": "Des saveurs fraîches et généreuses, préparées chaque jour avec de vrais ingrédients.",
+      "orderNow": "Commander"
     }
   },
   "DownloadMenu": {

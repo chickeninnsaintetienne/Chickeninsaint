@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Facebook, MapPin, Phone, Clock, ChevronRight } from 'lucide-react'
+import { Facebook, MapPin, Phone, Clock, ChevronRight, ArrowRight } from 'lucide-react'
 import Tiktok from '../icons/Tiktok'
 import { getSettings } from '@/lib/get-settings'
 import { getTranslations } from 'next-intl/server'
@@ -23,9 +23,18 @@ export async function Footer() {
             <div className="container mx-auto px-4 relative">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
                     {/* Brand */}
-                    <div className="space-y-4">
-                        <h3 className="text-2xl font-black text-orange-500 tracking-tight">CHICKEN INN</h3>
-                        <p className="text-gray-400 text-sm leading-relaxed max-w-xs">{t('taste')}</p>
+                    <div className="space-y-5">
+                        <div className="space-y-3">
+                            <h3 className="text-2xl font-black text-orange-500 tracking-tight">CHICKEN INN</h3>
+                            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">{t('description')}</p>
+                        </div>
+                        <Link
+                            href="/menu"
+                            className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors group"
+                        >
+                            {t('orderNow')}
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
                     </div>
 
                     {/* Links */}
