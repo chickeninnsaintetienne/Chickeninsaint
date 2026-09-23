@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { productSchema, ProductFormValues } from '@/lib/validations/product'
@@ -41,9 +41,9 @@ export function ProductForm({ initialData, isEdit = false }: ProductFormProps) {
     const { uploadImage, uploading: imageUploading } = useImageUpload('products')
 
     // Fetch categories on mount
-    useState(() => {
+    useEffect(() => {
         listCategoriesForForm().then(setCategories)
-    })
+    }, [])
 
     const defaultValues: Partial<ProductFormValues> = initialData
         ? {
