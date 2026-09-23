@@ -67,6 +67,19 @@
       "rights": "All rights reserved.",
       "description": "Fresh, bold flavors made daily. Real ingredients, real taste, every single time.",
       "orderNow": "Order Now"
+    },
+    "Locations": {
+      "eyebrow": "Visit Us",
+      "title": "FIND US",
+      "subtitle": "Visit us for the best experience",
+      "addressLabel": "Address",
+      "phoneLabel": "Phone",
+      "hoursLabel": "Opening Hours",
+      "addressNotSet": "Address not set",
+      "phoneNotSet": "Phone not set",
+      "hoursNotSet": "Hours not set",
+      "getDirections": "Get Directions",
+      "callUs": "Call Us"
     }
   },
   "DownloadMenu": {

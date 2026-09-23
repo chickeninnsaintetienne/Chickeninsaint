@@ -67,6 +67,19 @@
       "rights": "Tous droits réservés.",
       "description": "Des saveurs fraîches et généreuses, préparées chaque jour avec de vrais ingrédients.",
       "orderNow": "Commander"
+    },
+    "Locations": {
+      "eyebrow": "Nous rendre visite",
+      "title": "NOUS TROUVER",
+      "subtitle": "Venez vivre la meilleure expérience",
+      "addressLabel": "Adresse",
+      "phoneLabel": "Téléphone",
+      "hoursLabel": "Horaires d'ouverture",
+      "addressNotSet": "Adresse non renseignée",
+      "phoneNotSet": "Téléphone non renseigné",
+      "hoursNotSet": "Horaires non renseignés",
+      "getDirections": "Obtenir l'itinéraire",
+      "callUs": "Appelez-nous"
     }
   },
   "DownloadMenu": {
