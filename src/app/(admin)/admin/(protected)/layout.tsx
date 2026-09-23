@@ -5,6 +5,14 @@ import { Button } from '@/components/ui/button'
 import { MobileNav } from '@/components/admin/mobile-nav'
 import { NavLink } from '@/components/admin/nav-link'
 
+// These admin pages read the logged-in user's cookies on every request
+// (via createClient() -> supabase.auth.getUser()), so they can never be
+// statically prerendered. Forcing dynamic rendering stops Next.js from
+// trying to prerender them at build time -- which is what was crashing
+// the build when NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY
+// aren't present in the build environment. Behavior at runtime is unchanged.
+export const dynamic = 'force-dynamic'
+
 export default async function DashboardLayout({
     children,
 }: {

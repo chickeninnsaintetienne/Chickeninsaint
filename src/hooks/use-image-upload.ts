@@ -8,7 +8,6 @@ type FolderType = 'products' | 'offers' | 'qr-codes' | 'categories'
 
 export function useImageUpload(folder: FolderType) {
     const [uploading, setUploading] = useState(false)
-    const supabase = createClient()
 
     const convertToWebP = async (file: File): Promise<Blob> => {
         return new Promise((resolve, reject) => {
@@ -44,6 +43,8 @@ export function useImageUpload(folder: FolderType) {
     const uploadImage = async (file: File, entityId?: string): Promise<string | null> => {
         try {
             setUploading(true)
+
+            const supabase = createClient()
 
             // Convert to WebP
             const webpBlob = await convertToWebP(file)
@@ -88,6 +89,8 @@ export function useImageUpload(folder: FolderType) {
      */
     const deleteImage = async (imageUrl: string): Promise<boolean> => {
         try {
+            const supabase = createClient()
+
             // Extract path from URL
             const url = new URL(imageUrl)
             const pathParts = url.pathname.split(`${BUCKET_NAME}/`)
