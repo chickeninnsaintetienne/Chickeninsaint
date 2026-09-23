@@ -1,73 +1,75 @@
 {
-    "HomePage": {
-        "Hero": {
-            "title": "Goûtez l'Original",
-            "subtitle": "Au service de la communauté avec la Meilleure Nourriture Halal depuis 1994. Découvrez le goût authentique de la tradition.",
-            "bestHalal": "Meilleure Nourriture Halal Depuis 1994",
-            "orderNow": "Commander",
-            "learnMore": "En Savoir Plus"
-        },
-        "Nav": {
-            "menu": "Menu",
-            "story": "Notre Histoire",
-            "offers": "Offres",
-            "locations": "Emplacements",
-            "home": "Accueil"
-        },
-        "Story": {
-            "label": "Notre Histoire",
-            "title": "Une Tradition d'Excellence",
-            "description1": "Fondé en 2010, Chicken Inn a commencé avec une mission simple : servir la meilleure nourriture Halal avec une qualité sans compromis. Notre mélange d'épices secret et nos ingrédients frais ont fait de nous un favori local depuis plus d'une décennie.",
-            "description2": "Nous sommes fiers de notre héritage, préparant chaque repas avec amour et dévouement. De notre poulet croustillant signature à nos pizzas cuites sur pierre, le goût authentique est au cœur de tout ce que nous faisons."
-        },
-        "Categories": {
-            "title": "Nos Favoris",
-            "subtitle": "Découvrez notre large gamme d'options délicieuses et 100% Halal.",
-            "viewMenu": "Voir le Menu",
-            "chicken": {
-                "title": "Poulet"
-            },
-            "burgers": {
-                "title": "Burgers"
-            },
-            "pizza": {
-                "title": "Pizzas"
-            },
-            "family": {
-                "title": "Menus Famille"
-            }
-        },
-        "Menu": {
-            "title": "Notre Menu",
-            "subtitle": "Délicieux repas préparés avec amour",
-            "viewDetails": "Voir les détails",
-            "solo": "Prix Solo",
-            "menu": "Prix Menu",
-            "ingredients": "Ingrédients"
-        },
-        "Offers": {
-            "title": "Offres Spéciales",
-            "subtitle": "Des offres imbattables pour une durée limitée",
-            "viewAll": "Voir Tout",
-            "orderDeal": "Commander cette offre",
-            "backToOffers": "Retour aux offres"
-        },
-        "Delivery": {
-            "title": "Commandez en Livraison",
-            "subtitle": "Faites-vous livrer votre repas préféré à votre porte via nos partenaires de livraison.",
-            "callUs": "Nous Appeler"
-        },
-        "Footer": {
-            "taste": "goût original",
-            "quickLinks": "Liens Rapides",
-            "contactUs": "Contactez-Nous",
-            "followUs": "Suivez-Nous",
-            "rights": "Tous droits réservés."
-        }
+  "HomePage": {
+    "Hero": {
+      "title": "Goûtez l'Original",
+      "subtitle": "Au service de la communauté avec la Meilleure Nourriture Halal depuis 1994. Découvrez le goût authentique de la tradition.",
+      "bestHalal": "Meilleure Nourriture Halal Depuis 1994",
+      "orderNow": "Commander",
+      "learnMore": "En Savoir Plus"
     },
-    "DownloadMenu": {
-        "title": "Télécharger Notre Menu",
-        "subtitle": "Obtenez notre menu complet avec tous les prix et options",
-        "button": "Télécharger"
+    "Nav": {
+      "menu": "Menu",
+      "story": "Notre Histoire",
+      "offers": "Offres",
+      "locations": "Emplacements",
+      "home": "Accueil"
+    },
+    "Story": {
+      "label": "Notre Histoire",
+      "title": "Une Tradition d'Excellence",
+      "description1": "Fondé en 2010, Chicken Inn a commencé avec une mission simple : servir la meilleure nourriture Halal avec une qualité sans compromis. Notre mélange d'épices secret et nos ingrédients frais ont fait de nous un favori local depuis plus d'une décennie.",
+      "description2": "Nous sommes fiers de notre héritage, préparant chaque repas avec amour et dévouement. De notre poulet croustillant signature à nos pizzas cuites sur pierre, le goût authentique est au cœur de tout ce que nous faisons."
+    },
+    "Categories": {
+      "title": "Nos Favoris",
+      "subtitle": "Découvrez notre large gamme d'options délicieuses et 100% Halal.",
+      "viewMenu": "Voir le Menu",
+      "chicken": {
+        "title": "Poulet"
+      },
+      "burgers": {
+        "title": "Burgers"
+      },
+      "pizza": {
+        "title": "Pizzas"
+      },
+      "family": {
+        "title": "Menus Famille"
+      }
+    },
+    "Menu": {
+      "title": "Notre Menu",
+      "subtitle": "Délicieux repas préparés avec amour",
+      "viewDetails": "Voir les détails",
+      "solo": "Prix Solo",
+      "menu": "Prix Menu",
+      "ingredients": "Ingrédients"
+    },
+    "Offers": {
+      "title": "Offres Spéciales",
+      "subtitle": "Des offres imbattables pour une durée limitée",
+      "viewAll": "Voir Tout",
+      "orderDeal": "Commander cette offre",
+      "backToOffers": "Retour aux offres",
+      "noOffersTitle": "Aucune offre pour l'instant",
+      "noOffersSubtitle": "Revenez bientôt pour de nouvelles offres"
+    },
+    "Delivery": {
+      "title": "Commandez en Livraison",
+      "subtitle": "Faites-vous livrer votre repas préféré à votre porte via nos partenaires de livraison.",
+      "callUs": "Nous Appeler"
+    },
+    "Footer": {
+      "taste": "goût original",
+      "quickLinks": "Liens Rapides",
+      "contactUs": "Contactez-Nous",
+      "followUs": "Suivez-Nous",
+      "rights": "Tous droits réservés."
     }
+  },
+  "DownloadMenu": {
+    "title": "Télécharger Notre Menu",
+    "subtitle": "Obtenez notre menu complet avec tous les prix et options",
+    "button": "Télécharger"
+  }
 }

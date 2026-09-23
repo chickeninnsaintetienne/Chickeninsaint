@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import Image from 'next/image'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Tag } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import { getTranslations } from 'next-intl/server'
 
@@ -64,10 +64,15 @@ export default async function OffersPage({ params }: OffersPageProps) {
                 })}
 
                 {offers.length === 0 && (
-                    <div className="col-span-2 text-center py-20 text-gray-400">
-                        {locale === 'fr' 
-                            ? 'Aucune offre active pour le moment. Revenez bientôt!' 
-                            : 'No active offers at the moment. Check back soon!'}
+                    <div className="col-span-2 flex flex-col items-center justify-center py-24 text-center">
+                        <div className="relative mb-6">
+                            <div className="absolute inset-0 rounded-full bg-orange-100 animate-ping opacity-75" />
+                            <div className="relative flex items-center justify-center w-20 h-20 rounded-full bg-orange-50 border-2 border-orange-100 animate-bounce [animation-duration:2s]">
+                                <Tag className="h-9 w-9 text-orange-400" strokeWidth={1.75} />
+                            </div>
+                        </div>
+                        <h2 className="text-2xl font-bold text-gray-700">{t('noOffersTitle')}</h2>
+                        <p className="text-gray-400 mt-2">{t('noOffersSubtitle')}</p>
                     </div>
                 )}
             </div>

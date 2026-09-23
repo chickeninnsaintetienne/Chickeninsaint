@@ -1,73 +1,75 @@
 {
-    "HomePage": {
-        "Hero": {
-            "title": "Taste the Original",
-            "subtitle": "Serving the community with the Best Halal Food since 1994. Experience the authentic taste of tradition.",
-            "bestHalal": "Best Halal Food Since 1994",
-            "orderNow": "Order Now",
-            "learnMore": "Learn More"
-        },
-        "Nav": {
-            "menu": "Menu",
-            "story": "Our Story",
-            "offers": "Offers",
-            "locations": "Locations",
-            "home": "Home"
-        },
-        "Story": {
-            "label": "Our Story",
-            "title": "A Tradition of Excellence",
-            "description1": "Founded in 2010, Chicken Inn started with a simple mission: to serve the best Halal food with uncompromising quality. Our secret spice blend and fresh ingredients have made us a local favorite for over a decade.",
-            "description2": "We take pride in our heritage, preparing every meal with love and dedication. From our signature crispy chicken to our stone-baked pizzas, authentic taste is at the heart of everything we do."
-        },
-        "Categories": {
-            "title": "Our Favorites",
-            "subtitle": "Discover our wide range of delicious, 100% Halal options.",
-            "viewMenu": "View Menu",
-            "chicken": {
-                "title": "Chicken"
-            },
-            "burgers": {
-                "title": "Burgers"
-            },
-            "pizza": {
-                "title": "Pizzas"
-            },
-            "family": {
-                "title": "Family Meals"
-            }
-        },
-        "Menu": {
-            "title": "Our Menu",
-            "subtitle": "Delicious meals prepared with love",
-            "viewDetails": "View Details",
-            "solo": "Solo Price",
-            "menu": "Menu Price",
-            "ingredients": "Ingredients"
-        },
-        "Offers": {
-            "title": "Special Offers",
-            "subtitle": "Unbeatable deals for limited time",
-            "viewAll": "View All",
-            "orderDeal": "Order This Deal",
-            "backToOffers": "Back to Offers"
-        },
-        "Delivery": {
-            "title": "Order Delivery Now",
-            "subtitle": "Get your favorite meal delivered to your doorstep via our delivery partners.",
-            "callUs": "Call Us"
-        },
-        "Footer": {
-            "taste": "original taste",
-            "quickLinks": "Quick Links",
-            "contactUs": "Contact Us",
-            "followUs": "Follow Us",
-            "rights": "All rights reserved."
-        }
+  "HomePage": {
+    "Hero": {
+      "title": "Taste the Original",
+      "subtitle": "Serving the community with the Best Halal Food since 1994. Experience the authentic taste of tradition.",
+      "bestHalal": "Best Halal Food Since 1994",
+      "orderNow": "Order Now",
+      "learnMore": "Learn More"
     },
-    "DownloadMenu": {
-        "title": "Download Our Menu",
-        "subtitle": "Get our complete menu with all prices and options",
-        "button": "Download"
+    "Nav": {
+      "menu": "Menu",
+      "story": "Our Story",
+      "offers": "Offers",
+      "locations": "Locations",
+      "home": "Home"
+    },
+    "Story": {
+      "label": "Our Story",
+      "title": "A Tradition of Excellence",
+      "description1": "Founded in 2010, Chicken Inn started with a simple mission: to serve the best Halal food with uncompromising quality. Our secret spice blend and fresh ingredients have made us a local favorite for over a decade.",
+      "description2": "We take pride in our heritage, preparing every meal with love and dedication. From our signature crispy chicken to our stone-baked pizzas, authentic taste is at the heart of everything we do."
+    },
+    "Categories": {
+      "title": "Our Favorites",
+      "subtitle": "Discover our wide range of delicious, 100% Halal options.",
+      "viewMenu": "View Menu",
+      "chicken": {
+        "title": "Chicken"
+      },
+      "burgers": {
+        "title": "Burgers"
+      },
+      "pizza": {
+        "title": "Pizzas"
+      },
+      "family": {
+        "title": "Family Meals"
+      }
+    },
+    "Menu": {
+      "title": "Our Menu",
+      "subtitle": "Delicious meals prepared with love",
+      "viewDetails": "View Details",
+      "solo": "Solo Price",
+      "menu": "Menu Price",
+      "ingredients": "Ingredients"
+    },
+    "Offers": {
+      "title": "Special Offers",
+      "subtitle": "Unbeatable deals for limited time",
+      "viewAll": "View All",
+      "orderDeal": "Order This Deal",
+      "backToOffers": "Back to Offers",
+      "noOffersTitle": "No offers right now",
+      "noOffersSubtitle": "Check back soon for new deals"
+    },
+    "Delivery": {
+      "title": "Order Delivery Now",
+      "subtitle": "Get your favorite meal delivered to your doorstep via our delivery partners.",
+      "callUs": "Call Us"
+    },
+    "Footer": {
+      "taste": "original taste",
+      "quickLinks": "Quick Links",
+      "contactUs": "Contact Us",
+      "followUs": "Follow Us",
+      "rights": "All rights reserved."
     }
+  },
+  "DownloadMenu": {
+    "title": "Download Our Menu",
+    "subtitle": "Get our complete menu with all prices and options",
+    "button": "Download"
+  }
 }
