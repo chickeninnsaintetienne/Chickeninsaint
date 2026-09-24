@@ -11,6 +11,19 @@ import { toast } from 'sonner'
 import { Loader2, Download } from 'lucide-react'
 import Image from 'next/image'
 
+const QR_COLOR = '#F05334' // Chicken Inn orange
+const QR_LOGO = '/assets/qr-logo.png'
+const QR_SIZE = 600
+
+function loadImage(src: string): Promise<HTMLImageElement> {
+    return new Promise((resolve, reject) => {
+        const img = new window.Image()
+        img.onload = () => resolve(img)
+        img.onerror = reject
+        img.src = src
+    })
+}
+
 export default function QrCodesPage() {
     const [type, setType] = useState('custom')
     const [url, setUrl] = useState('')
@@ -31,6 +44,9 @@ export default function QrCodesPage() {
             case 'offers':
                 setUrl(baseUrl + '/offers')
                 break
+            case 'full-menu':
+                setUrl(baseUrl + '/full-menu')
+                break
             case 'custom':
                 setUrl('')
                 break
@@ -46,14 +62,38 @@ export default function QrCodesPage() {
         }
         try {
             setGenerating(true)
-            const dataUrl = await QRCode.toDataURL(url, {
-                width: 400,
+            // High error correction so the logo in the middle doesn't break scanning
+            const canvas = document.createElement('canvas')
+            await QRCode.toCanvas(canvas, url, {
+                width: QR_SIZE,
                 margin: 2,
+                errorCorrectionLevel: 'H',
                 color: {
-                    dark: '#000000',
+                    dark: QR_COLOR,
                     light: '#ffffff',
                 },
             })
+
+            // Draw the logo in the centre on a white rounded square
+            const ctx = canvas.getContext('2d')
+            if (ctx) {
+                const logo = await loadImage(QR_LOGO)
+                const box = Math.round(canvas.width * 0.24)
+                const boxX = (canvas.width - box) / 2
+                const boxY = (canvas.height - box) / 2
+                ctx.fillStyle = '#ffffff'
+                ctx.beginPath()
+                ctx.roundRect(boxX, boxY, box, box, box * 0.15)
+                ctx.fill()
+
+                const pad = box * 0.1
+                const maxSize = box - pad * 2
+                const ratio = logo.width / logo.height
+                const w = ratio >= 1 ? maxSize : maxSize * ratio
+                const h = ratio >= 1 ? maxSize / ratio : maxSize
+                ctx.drawImage(logo, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h)
+            }
+            const dataUrl = canvas.toDataURL('image/png')
             setQrDataUrl(dataUrl)
             toast.success('QR Code generated')
         } catch (err) {
@@ -94,6 +134,7 @@ export default function QrCodesPage() {
                                     <SelectItem value="home">Home Page</SelectItem>
                                     <SelectItem value="menu">Menu Page</SelectItem>
                                     <SelectItem value="offers">Offers Page</SelectItem>
+                                    <SelectItem value="full-menu">Full Menu (images)</SelectItem>
                                     <SelectItem value="custom">Custom URL</SelectItem>
                                 </SelectContent>
                             </Select>
