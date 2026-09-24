@@ -1,0 +1,77 @@
+/* Full-screen menu viewer (covers the site navbar/footer). All styles are scoped. */
+.root{
+  --primary:#F05334;
+  --primary-dark:#d9411f;
+  --navbar-h:80px;   /* height of the site navbar */
+  position:fixed;left:0;right:0;bottom:0;top:var(--navbar-h);z-index:40;
+  background:#222;overflow:hidden;
+}
+.root *{box-sizing:border-box}
+
+
+.viewer{
+  position:absolute;inset:0;
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  container-type:inline-size;
+}
+.menu{
+  --zoom:1;
+  width:max-content;
+  min-width:100%;
+  padding:30px 0;
+}
+.menu img{
+  display:block;
+  margin:0 auto;
+  max-width:none;
+  height:auto;
+  width:calc(min(100vw,900px) * var(--zoom));
+  width:calc(min(100cqw,900px) * var(--zoom));
+  box-shadow:0 3px 15px rgba(0,0,0,.35);
+}
+
+.zoom{
+  position:absolute;right:18px;top:14px;
+  z-index:100;
+  display:flex;align-items:center;gap:7px;
+  padding:6px 8px;border-radius:10px;
+  background:var(--primary);color:white;
+  font:600 14px Arial,sans-serif;
+  -webkit-user-select:none;user-select:none;
+}
+.zoom button{
+  border:0;border-radius:6px;padding:7px 11px;min-width:36px;
+  cursor:pointer;background:white;color:var(--primary);
+  font:700 16px/1 Arial,sans-serif;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.zoom button.value{
+  background:transparent;color:white;font-size:14px;
+  min-width:52px;padding:7px 4px;
+  font-variant-numeric:tabular-nums;
+}
+
+@media(max-width:600px){
+  .menu{padding:0}
+  .menu img{box-shadow:none}
+
+  .zoom{
+    top:auto;right:auto;
+    left:50%;transform:translateX(-50%);
+    bottom:calc(14px + env(safe-area-inset-bottom,0px));
+    gap:2px;padding:5px;border-radius:999px;
+    background:var(--primary);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    box-shadow:0 4px 14px rgba(0,0,0,.4);
+  }
+  .zoom button{
+    height:44px;min-width:44px;border-radius:999px;
+    font-size:22px;
+    background:rgba(255,255,255,.22);color:#fff;
+  }
+  .zoom button:active{background:rgba(255,255,255,.4)}
+  .zoom button.value{font-size:14px;min-width:60px;background:transparent}
+  .zoom .reset{display:none}
+}
