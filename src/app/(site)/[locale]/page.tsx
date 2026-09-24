@@ -10,6 +10,10 @@ import { Hero } from '@/components/home/hero'
 import { Story } from '@/components/home/story'
 import { FeaturedCategories } from '@/components/home/featured-categories'
 
+const UBER_EATS_URL = 'https://www.ubereats.com/fr-en/store/chicken-inn/1y9oUnWyQ1eDe857zd3SUg'
+// Deliveroo is hidden for now. Set to true to show it again.
+const SHOW_DELIVEROO = false
+
 async function getFeaturedOffers() {
   const offers = await prisma.offer.findMany({ take: 3 })
   // Decimal isn't a valid React child -> convert to number for display.
@@ -94,14 +98,14 @@ export default async function Home(props: {
               {t('Delivery.subtitle')}
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-              {settings?.uber_eats_url && (
-                <a href={settings.uber_eats_url} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
+              {UBER_EATS_URL && (
+                <a href={UBER_EATS_URL} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
                   <Button size="lg" className="font-oswald bg-black hover:bg-zinc-900 text-white font-black h-16 px-10 rounded-2xl w-full text-xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] transition-all hover:scale-105 hover:-translate-y-1">
                     <Image src="/uber_eats.svg" alt="Uber Eats" width={110} height={28} className="h-7 w-auto brightness-0 invert" />
                   </Button>
                 </a>
               )}
-              {settings?.deliveroo_url && (
+              {SHOW_DELIVEROO && settings?.deliveroo_url && (
                 <a href={settings.deliveroo_url} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
                   <Button size="lg" className="font-oswald bg-[#00CCBC] hover:bg-[#00a89b] text-white font-black h-16 px-10 rounded-2xl w-full text-xl shadow-[0_10px_30px_-10px_rgba(0,204,188,0.5)] transition-all hover:scale-105 hover:-translate-y-1 flex items-center gap-3">
                     <Image src="/deliveroo.svg" alt="Deliveroo" width={28} height={28} className="h-7 w-auto brightness-0 invert" />
