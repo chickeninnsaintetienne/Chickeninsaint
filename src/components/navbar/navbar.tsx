@@ -137,20 +137,6 @@ export function Navbar() {
                     {/* Language Selector */}
                     <div className="flex items-center gap-2">
                         <button
-                            onClick={() => onLanguageChange('en')}
-                            className={cn(
-                                "px-3 py-1 text-sm font-bold uppercase transition-colors",
-                                locale === 'en'
-                                    ? 'text-orange-500'
-                                    : shouldShowSolidNavbar
-                                        ? 'text-gray-900 hover:text-orange-600'
-                                        : 'text-white hover:text-orange-500'
-                            )}
-                        >
-                            En
-                        </button>
-                        <span className={shouldShowSolidNavbar ? "text-gray-300" : "text-white/30"}>|</span>
-                        <button
                             onClick={() => onLanguageChange('fr')}
                             className={cn(
                                 "px-3 py-1 text-sm font-bold uppercase transition-colors",
@@ -162,6 +148,20 @@ export function Navbar() {
                             )}
                         >
                             Fr
+                        </button>
+                        <span className={shouldShowSolidNavbar ? "text-gray-300" : "text-white/30"}>|</span>
+                        <button
+                            onClick={() => onLanguageChange('en')}
+                            className={cn(
+                                "px-3 py-1 text-sm font-bold uppercase transition-colors",
+                                locale === 'en'
+                                    ? 'text-orange-500'
+                                    : shouldShowSolidNavbar
+                                        ? 'text-gray-900 hover:text-orange-600'
+                                        : 'text-white hover:text-orange-500'
+                            )}
+                        >
+                            En
                         </button>
                     </div>
                 </div>
@@ -209,17 +209,17 @@ export function Navbar() {
                             <div className="flex gap-2">
                                 <Button
                                     size="sm"
-                                    variant={locale === 'en' ? 'default' : 'outline'}
-                                    onClick={() => onLanguageChange('en')}
-                                >
-                                    EN
-                                </Button>
-                                <Button
-                                    size="sm"
                                     variant={locale === 'fr' ? 'default' : 'outline'}
                                     onClick={() => onLanguageChange('fr')}
                                 >
                                     FR
+                                </Button>
+                                <Button
+                                    size="sm"
+                                    variant={locale === 'en' ? 'default' : 'outline'}
+                                    onClick={() => onLanguageChange('en')}
+                                >
+                                    EN
                                 </Button>
                             </div>
                         </div>

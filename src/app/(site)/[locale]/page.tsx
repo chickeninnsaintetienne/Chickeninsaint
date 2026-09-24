@@ -100,22 +100,22 @@ export default async function Home(props: {
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               {UBER_EATS_URL && (
                 <a href={UBER_EATS_URL} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
-                  <Button size="lg" className="font-oswald bg-black hover:bg-zinc-900 text-white font-black h-16 px-10 rounded-2xl w-full text-xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] transition-all hover:scale-105 hover:-translate-y-1">
-                    <Image src="/uber_eats.svg" alt="Uber Eats" width={110} height={28} className="h-7 w-auto brightness-0 invert" />
+                  <Button size="lg" className="font-oswald bg-black hover:bg-zinc-900 text-white font-black h-11 px-6 rounded-xl w-full text-sm shadow-[0_6px_16px_-8px_rgba(0,0,0,0.5)] transition-all hover:scale-105 hover:-translate-y-0.5">
+                    <Image src="/uber_eats.svg" alt="Uber Eats" width={90} height={22} className="h-5 w-auto brightness-0 invert" />
                   </Button>
                 </a>
               )}
               {SHOW_DELIVEROO && settings?.deliveroo_url && (
                 <a href={settings.deliveroo_url} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
-                  <Button size="lg" className="font-oswald bg-[#00CCBC] hover:bg-[#00a89b] text-white font-black h-16 px-10 rounded-2xl w-full text-xl shadow-[0_10px_30px_-10px_rgba(0,204,188,0.5)] transition-all hover:scale-105 hover:-translate-y-1 flex items-center gap-3">
-                    <Image src="/deliveroo.svg" alt="Deliveroo" width={28} height={28} className="h-7 w-auto brightness-0 invert" />
+                  <Button size="lg" className="font-oswald bg-[#00CCBC] hover:bg-[#00a89b] text-white font-black h-11 px-6 rounded-xl w-full text-sm shadow-[0_6px_16px_-8px_rgba(0,204,188,0.5)] transition-all hover:scale-105 hover:-translate-y-0.5 flex items-center gap-2">
+                    <Image src="/deliveroo.svg" alt="Deliveroo" width={22} height={22} className="h-5 w-auto brightness-0 invert" />
                     DELIVEROO
                   </Button>
                 </a>
               )}
               <a href={`tel:${settings?.phone}`} className="w-full md:w-auto">
-                <Button size="lg" className="font-oswald bg-orange-600 hover:bg-orange-700 text-white h-16 px-10 rounded-2xl w-full text-xl font-black shadow-[0_10px_30px_-10px_rgba(234,88,12,0.5)] transition-all hover:scale-105 hover:-translate-y-1 flex items-center justify-center">
-                  <Phone className="mr-3 h-7 w-7" /> {t('Delivery.callUs')}
+                <Button size="lg" className="font-oswald bg-orange-600 hover:bg-orange-700 text-white h-11 px-6 rounded-xl w-full text-sm font-black shadow-[0_6px_16px_-8px_rgba(234,88,12,0.5)] transition-all hover:scale-105 hover:-translate-y-0.5 flex items-center justify-center">
+                  <Phone className="mr-2 h-4 w-4" /> {t('Delivery.callUs')}
                 </Button>
               </a>
             </div>
