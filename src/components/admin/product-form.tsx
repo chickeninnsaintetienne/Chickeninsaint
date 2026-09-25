@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { productSchema, ProductFormValues } from '@/lib/validations/product'
@@ -36,6 +37,7 @@ interface ProductFormProps {
 }
 
 export function ProductForm({ initialData, isEdit = false }: ProductFormProps) {
+    const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [categories, setCategories] = useState<any[]>([])
     const { uploadImage, uploading: imageUploading } = useImageUpload('products')
@@ -93,6 +95,7 @@ export function ProductForm({ initialData, isEdit = false }: ProductFormProps) {
                 await createProduct(data)
                 toast.success('Product created successfully')
             }
+            router.push('/admin/products')
         } catch (error: any) {
             toast.error('Error: ' + error.message)
         } finally {

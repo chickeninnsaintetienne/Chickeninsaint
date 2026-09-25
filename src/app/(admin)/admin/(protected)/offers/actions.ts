@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma'
 import { requireAdmin } from '@/lib/require-admin'
 import { offerSchema, OfferFormValues } from '@/lib/validations/offer'
 import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
+import { deleteStorageImage, deleteStorageImageIfReplaced } from '@/lib/storage-actions'
 
 export async function createOffer(data: OfferFormValues) {
     await requireAdmin()
@@ -22,11 +22,15 @@ export async function createOffer(data: OfferFormValues) {
     })
 
     revalidatePath('/admin/offers')
-    redirect('/admin/offers')
 }
 
 export async function updateOffer(id: string, data: OfferFormValues) {
     await requireAdmin()
+
+    const existing = await prisma.offer.findUnique({
+        where: { id },
+        select: { image_url: true },
+    })
 
     await prisma.offer.update({
         where: { id },
@@ -41,14 +45,22 @@ export async function updateOffer(id: string, data: OfferFormValues) {
         },
     })
 
+    await deleteStorageImageIfReplaced(existing?.image_url, data.image_url)
+
     revalidatePath('/admin/offers')
-    redirect('/admin/offers')
 }
 
 export async function deleteOffer(id: string) {
     await requireAdmin()
 
+    const existing = await prisma.offer.findUnique({
+        where: { id },
+        select: { image_url: true },
+    })
+
     await prisma.offer.delete({ where: { id } })
+
+    await deleteStorageImage(existing?.image_url)
 
     revalidatePath('/admin/offers')
 }

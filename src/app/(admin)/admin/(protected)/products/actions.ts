@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma'
 import { requireAdmin } from '@/lib/require-admin'
 import { productSchema, ProductFormValues } from '@/lib/validations/product'
 import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
+import { deleteStorageImage, deleteStorageImageIfReplaced } from '@/lib/storage-actions'
 
 export async function createProduct(data: ProductFormValues) {
     await requireAdmin()
@@ -27,11 +27,15 @@ export async function createProduct(data: ProductFormValues) {
     })
 
     revalidatePath('/admin/products')
-    redirect('/admin/products')
 }
 
 export async function updateProduct(id: string, data: ProductFormValues) {
     await requireAdmin()
+
+    const existing = await prisma.product.findUnique({
+        where: { id },
+        select: { image_url: true },
+    })
 
     await prisma.product.update({
         where: { id },
@@ -51,14 +55,23 @@ export async function updateProduct(id: string, data: ProductFormValues) {
         },
     })
 
+    // Remove the old image from storage now that it's been replaced
+    await deleteStorageImageIfReplaced(existing?.image_url, data.image_url)
+
     revalidatePath('/admin/products')
-    redirect('/admin/products')
 }
 
 export async function deleteProduct(id: string) {
     await requireAdmin()
 
+    const existing = await prisma.product.findUnique({
+        where: { id },
+        select: { image_url: true },
+    })
+
     await prisma.product.delete({ where: { id } })
+
+    await deleteStorageImage(existing?.image_url)
 
     revalidatePath('/admin/products')
 }

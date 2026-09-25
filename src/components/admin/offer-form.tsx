@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { offerSchema, OfferFormValues } from '@/lib/validations/offer'
@@ -28,6 +29,7 @@ interface OfferFormProps {
 }
 
 export function OfferForm({ initialData, isEdit = false }: OfferFormProps) {
+    const router = useRouter()
     const [loading, setLoading] = useState(false)
     const { uploadImage, uploading: imageUploading } = useImageUpload('offers')
 
@@ -67,6 +69,7 @@ export function OfferForm({ initialData, isEdit = false }: OfferFormProps) {
                 await createOffer(data)
                 toast.success('Offer created successfully')
             }
+            router.push('/admin/offers')
         } catch (error: any) {
             toast.error('Error: ' + error.message)
         } finally {

@@ -3,7 +3,7 @@
 import { prisma } from '@/lib/prisma'
 import { requireAdmin } from '@/lib/require-admin'
 import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
+import { deleteStorageImage, deleteStorageImageIfReplaced } from '@/lib/storage-actions'
 
 export interface CategoryFormValues {
     name: string
@@ -27,11 +27,15 @@ export async function createCategory(data: CategoryFormValues) {
     })
 
     revalidatePath('/admin/categories')
-    redirect('/admin/categories')
 }
 
 export async function updateCategory(id: string, data: CategoryFormValues) {
     await requireAdmin()
+
+    const existing = await prisma.category.findUnique({
+        where: { id },
+        select: { image_url: true },
+    })
 
     await prisma.category.update({
         where: { id },
@@ -44,14 +48,22 @@ export async function updateCategory(id: string, data: CategoryFormValues) {
         },
     })
 
+    await deleteStorageImageIfReplaced(existing?.image_url, data.image_url)
+
     revalidatePath('/admin/categories')
-    redirect('/admin/categories')
 }
 
 export async function deleteCategory(id: string) {
     await requireAdmin()
 
+    const existing = await prisma.category.findUnique({
+        where: { id },
+        select: { image_url: true },
+    })
+
     await prisma.category.delete({ where: { id } })
+
+    await deleteStorageImage(existing?.image_url)
 
     revalidatePath('/admin/categories')
 }

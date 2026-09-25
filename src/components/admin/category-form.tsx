@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -24,6 +25,7 @@ interface CategoryFormProps {
 }
 
 export function CategoryForm({ category }: CategoryFormProps) {
+    const router = useRouter()
     const [loading, setLoading] = useState(false)
     const { uploadImage, uploading: imageUploading } = useImageUpload('categories')
     const isEdit = !!category
@@ -67,6 +69,7 @@ export function CategoryForm({ category }: CategoryFormProps) {
                 await createCategory(data)
                 toast.success('Category created successfully')
             }
+            router.push('/admin/categories')
         } catch (error) {
             toast.error(isEdit ? 'Failed to update category' : 'Failed to create category')
         } finally {
