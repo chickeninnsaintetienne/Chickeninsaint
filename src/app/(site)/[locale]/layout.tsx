@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Oswald } from 'next/font/google'
 import '../../globals.css'
 import { Navbar } from '@/components/navbar/navbar'
@@ -13,6 +13,7 @@ import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { NavbarSpacer } from '@/components/navbar/navbar-spacer'
 import { DownloadMenu } from '@/components/download-menu/download-menu'
+import { RegisterServiceWorker } from '@/components/pwa/register-sw'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' })
@@ -20,10 +21,20 @@ const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' })
 export const metadata: Metadata = {
   title: 'Chicken Inn - Original Taste',
   description: 'Best chicken burgers and meals in France.',
+  manifest: '/manifest.webmanifest',
+  appleWebApp: {
+    capable: true,
+    title: 'Chicken Inn',
+    statusBarStyle: 'default',
+  },
   icons: {
     icon: '/assets/logo.png',
     apple: '/assets/logo.png',
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#ef5435',
 }
 
 export function generateStaticParams() {
@@ -67,6 +78,7 @@ export default async function RootLayout({
           {!isAdminPage && <Footer />}
           {!isAdminPage && <SearchComponent />}
           <Toaster />
+          <RegisterServiceWorker />
         </NextIntlClientProvider>
       </body>
     </html>
